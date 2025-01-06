@@ -6,7 +6,7 @@ export default function Navbar() {
   const links = [
     {
       name: "Cátalogo",
-      href: "/",
+      href: "/catalogo",
     },
     {
       name: "Sobre Nosotros",
@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="flex items-center justify-between py-5 px-10 text-primary">
+      <header className="flex items-center justify-between py-5 px-10 text-primary border-b border-foreground">
         <div>
           <Link href="/" className="text-3xl font-recoleta">
             rosedra
