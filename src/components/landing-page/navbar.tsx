@@ -5,15 +5,15 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../u
 export default function Navbar() {
   const links = [
     {
-      name: "Home",
+      name: "Cátalogo",
       href: "/",
     },
     {
-      name: "About",
+      name: "Sobre Nosotros",
       href: "/about",
     },
     {
-      name: "Contact",
+      name: "Contacto",
       href: "/contact",
     },
   ];
@@ -27,7 +27,7 @@ export default function Navbar() {
           </Link>
         </div>
         <nav>
-          <ul className="flex space-x-5 text-md pt-1">
+          <ul className="flex space-x-10 text-md pt-1">
             {links.map((link) => (
               <li key={link.name}>
                 <Link href={link.href}>{link.name}</Link>
