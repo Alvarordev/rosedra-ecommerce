@@ -103,7 +103,7 @@ const CatalogoPage = () => {
               <ul className="grid grid-cols-3 gap-y-6 gap-x-10">
                 {products.map((product) => (
                   <li key={product.id} className="  col-span-1">
-                    <Link href="/">
+                    <Link href={`/product/${product.slug}`}>
                       <ProductCard product={product} />
                     </Link>
                   </li>

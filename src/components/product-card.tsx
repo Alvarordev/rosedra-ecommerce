@@ -5,6 +5,8 @@ import { Button } from "./ui/button";
 export interface Product {
   id: number;
   name: string;
+  slug: string;
+  description: string;
   price: number;
   size: string;
   color: string;

@@ -17,11 +17,11 @@ export default function Navbar() {
     },
     {
       name: "Sobre Nosotros",
-      href: "/about",
+      href: "/",
     },
     {
       name: "Contacto",
-      href: "/contact",
+      href: "/",
     },
   ];
 
