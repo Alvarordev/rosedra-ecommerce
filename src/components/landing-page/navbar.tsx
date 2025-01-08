@@ -1,3 +1,5 @@
+"use client";
+
 import { ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import {
@@ -7,7 +9,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
-import { raleway } from "@/lib/fonts";
+import { montserrat, raleway } from "@/lib/fonts";
+import useCartStore from "@/store/cart";
 
 export default function Navbar() {
   const links = [
@@ -24,6 +27,9 @@ export default function Navbar() {
       href: "/",
     },
   ];
+
+  const totalItems = useCartStore((state) => state.getTotalItems());
+  const cart = useCartStore((state) => state.items);
 
   return (
     <>
@@ -47,13 +53,23 @@ export default function Navbar() {
             <User className="w-5 h-5" />
           </button>
           <Sheet>
-            <SheetTrigger>
+            <SheetTrigger className="relative">
               <ShoppingCart className="w-5 h-5" />
+              <span className={`${montserrat.className} absolute rounded-full bg-primary text-background -top-2 -right-2 min-w-[18px] py-[1px] text-xs`}>
+                {totalItems}
+              </span>
             </SheetTrigger>
             <SheetContent>
               <SheetHeader>
                 <SheetTitle>Tu carrito</SheetTitle>
               </SheetHeader>
+              <div>
+                {cart.map((item) => (
+                  <div key={item.id}>
+                    <span>{item.name}</span>
+                  </div>
+                ))}
+              </div>
             </SheetContent>
           </Sheet>
         </div>

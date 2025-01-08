@@ -19,9 +19,7 @@ export default function Home() {
           <ul className="flex overflow-auto py-1">
             {products.map((product) => (
               <li key={product.id} className="mr-10 min-w-[360px]">
-                <Link href={`/product/${product.slug}`}>
-                  <ProductCard product={product} />
-                </Link>
+                <ProductCard product={product} />
               </li>
             ))}
           </ul>
