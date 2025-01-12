@@ -113,20 +113,22 @@ export default function Navbar() {
                             {item.color}
                           </p>
                         </div>
-                        <div className="flex py-3 px-2 border rounded-full">
-                          <button
-                            onClick={() => handleCounter("")}
-                            className="hover:bg-accent rounded-full"
-                          >
-                            <Minus className="h-5 w-5" />
-                          </button>
-                          <div className="px-5">{counter}</div>
-                          <button
-                            onClick={() => handleCounter("add")}
-                            className="hover:bg-accent rounded-full"
-                          >
-                            <Plus className="h-5 w-5" />
-                          </button>
+                        <div className="flex mt-auto">
+                          <div className="flex py-3 px-2 border rounded-full">
+                            <button
+                              onClick={() => handleCounter("")}
+                              className="hover:bg-accent rounded-full"
+                            >
+                              <Minus className="h-5 w-5" />
+                            </button>
+                            <div className="px-5">{counter}</div>
+                            <button
+                              onClick={() => handleCounter("add")}
+                              className="hover:bg-accent rounded-full"
+                            >
+                              <Plus className="h-5 w-5" />
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
