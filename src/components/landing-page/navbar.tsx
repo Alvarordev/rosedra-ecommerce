@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingCart, User } from "lucide-react";
+import { Minus, Plus, ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import {
   Sheet,
@@ -14,6 +14,7 @@ import { montserrat, raleway } from "@/lib/fonts";
 import useCartStore from "@/store/cart";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { useState } from "react";
 
 export default function Navbar() {
   const links = [
@@ -31,6 +32,18 @@ export default function Navbar() {
     },
   ];
 
+  const [counter, setCounter] = useState(1);
+
+  const handleCounter = (type: string) => {
+    if (type === "add") {
+      setCounter(counter + 1);
+    } else {
+      if (counter > 1) {
+        setCounter(counter - 1);
+      }
+    }
+  };
+
   const totalItems = useCartStore((state) => state.getTotalItems());
   const cart = useCartStore((state) => state.items);
   const totalPrice = useCartStore((state) => state.getTotalPrice());
@@ -44,7 +57,7 @@ export default function Navbar() {
           </Link>
         </div>
         <nav className={`${raleway.className} text-primary`}>
-          <ul className="flex space-x-10 text-md pt-1">
+          <ul className="flex space-x-10 text-md pt-1 font-semibold">
             {links.map((link) => (
               <li key={link.name}>
                 <Link href={link.href}>{link.name}</Link>
@@ -87,7 +100,10 @@ export default function Navbar() {
                       />
                       <div className="flex flex-col w-full">
                         <div className="flex justify-between ">
-                          <Link href={`/product/${item.slug}`} className="hover:underline">
+                          <Link
+                            href={`/product/${item.slug}`}
+                            className="hover:underline"
+                          >
                             <p className="font-semibold ">{item.name}</p>
                           </Link>
                           <p>S/{item.price}</p>
@@ -96,6 +112,21 @@ export default function Navbar() {
                           <p className="text-xs text-muted-foreground">
                             {item.color}
                           </p>
+                        </div>
+                        <div className="flex py-3 px-2 border rounded-full">
+                          <button
+                            onClick={() => handleCounter("")}
+                            className="hover:bg-accent rounded-full"
+                          >
+                            <Minus className="h-5 w-5" />
+                          </button>
+                          <div className="px-5">{counter}</div>
+                          <button
+                            onClick={() => handleCounter("add")}
+                            className="hover:bg-accent rounded-full"
+                          >
+                            <Plus className="h-5 w-5" />
+                          </button>
                         </div>
                       </div>
                     </div>
