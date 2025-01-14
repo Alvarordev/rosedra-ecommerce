@@ -32,6 +32,7 @@ const CartDrawer = () => {
   const totalItems = useCartStore((state) => state.getTotalItems());
   const cart = useCartStore((state) => state.items);
   const totalPrice = useCartStore((state) => state.getTotalPrice());
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
 
   return (
     <Sheet>
@@ -74,21 +75,31 @@ const CartDrawer = () => {
                       {item.color}
                     </p>
                   </div>
-                  <div className="flex mt-auto">
-                    <div className="flex py-3 px-2 border rounded-full">
+                  <div className="flex justify-between mt-auto">
+                    <div className="flex py-1.5 px-2 border rounded-full shadow-sm">
                       <button
                         onClick={() => handleCounter("")}
                         className="hover:bg-accent rounded-full"
                       >
-                        <Minus className="h-5 w-5" />
+                        <Minus className="h-4 w-4" />
                       </button>
-                      <div className="px-5">{counter}</div>
+                      <div className="px-4 text-sm">{counter}</div>
                       <button
                         onClick={() => handleCounter("add")}
                         className="hover:bg-accent rounded-full"
                       >
-                        <Plus className="h-5 w-5" />
+                        <Plus className="h-4 w-4" />
                       </button>
+                    </div>
+
+                    <div>
+                      <Button
+                        variant={"link"}
+                        className="ml-4 py-1 px-2 rounded-full text-sm text-muted-foreground hover:text-foreground"
+                        onClick={() => removeFromCart(item.id)}
+                      >
+                        Eliminar
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -107,12 +118,14 @@ const CartDrawer = () => {
                 </p>
               </div>
 
-              <Button
-                size="lg"
-                className="w-full bg-primary text-base text-background py-3 rounded-full"
-              >
-                Ir a Pagar
-              </Button>
+              <Link href={"/checkout"}>
+                <Button
+                  size="lg"
+                  className="w-full bg-primary text-base text-background py-3 rounded-full"
+                >
+                  Finalizar pedido
+                </Button>
+              </Link>
             </div>
           )}
         </SheetFooter>
