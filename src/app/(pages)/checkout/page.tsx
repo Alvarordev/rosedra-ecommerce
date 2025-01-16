@@ -139,8 +139,10 @@ const Checkout = () => {
                     Metodos de Envio
                   </span>
                   <div className="pt-3 w-full">
-                    <Label className="text-xs pl-2">email</Label>
-                    <Input className="rounded-none" />
+                    <div className="flex justify-between items-center text-sm font-semibold px-2 h-10 shadow-sm border border-blue-500 bg-blue-50 cursor-pointer">
+                      <span>LIMA Y CALLAO</span>
+                      <span>S/ 11.00</span>
+                    </div>
                   </div>
                 </div>
 
