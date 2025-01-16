@@ -21,159 +21,159 @@ const Checkout = () => {
   const totalPrice = useCartStore((state) => state.getTotalPrice());
 
   return (
-    <main
-      className={`${montserrat.className} min-h-screen h-screen bg-background text-primary`}
-    >
-      <div className="flex w-full h-full">
-        <div className="flex flex-col w-full h-full px-36">
-          <header className="flex justify-between items-center w-full border-b px-4 py-7">
-            <div className="text-3xl font-recoleta">rosedra</div>
+    <main className={`${montserrat.className} bg-background text-primary`}>
+      <div className="flex">
+        <div className="w-1/2 min-h-screen bg-background">
+          <div className="px-36">
+            <header className="flex justify-between items-center w-full border-b px-2 py-7">
+              <div className="text-3xl font-recoleta">rosedra</div>
 
-            <Link href={"/catalogo"}>
-              <Button
-                variant={"link"}
-                className="text-xs text-muted-foreground pt-3"
-              >
-                seguir comprando
-              </Button>
-            </Link>
-          </header>
-
-          <div className="flex w-full h-full">
-            <form className="w-full">
-              <div className="pt-4">
-                <span
-                  className={`${raleway.className} text-xl font-semibold text-primary`}
+              <Link href={"/catalogo"}>
+                <Button
+                  variant={"link"}
+                  className="text-xs text-muted-foreground pt-3"
                 >
-                  Contacto
-                </span>
-                <div className="pt-3 w-full">
-                  <Label className="text-xs pl-2">email</Label>
-                  <Input className="rounded-none" />
-                </div>
-              </div>
+                  seguir comprando
+                </Button>
+              </Link>
+            </header>
 
-              <div className="flex flex-col gap-3 pt-5">
-                <span
-                  className={`${raleway.className} text-xl font-semibold text-primary`}
-                >
-                  Entrega
-                </span>
-                <div className="flex gap-5 pt-3">
-                  <div className="w-full">
-                    <Label className="text-xs pl-2 ">nombre</Label>
-                    <Input className="rounded-none" />
-                  </div>
-                  <div className="w-full">
-                    <Label className="text-xs pl-2">apellidos</Label>
+            <div className="flex w-full h-full">
+              <form className="w-full">
+                <div className="pt-4">
+                  <span
+                    className={`${raleway.className} text-xl font-semibold text-primary`}
+                  >
+                    Contacto
+                  </span>
+                  <div className="pt-3 w-full">
+                    <Label className="text-xs pl-2">email</Label>
                     <Input className="rounded-none" />
                   </div>
                 </div>
-                <div>
-                  <Label className="text-xs pl-2">
-                    dni / carnet de extranjeria
-                  </Label>
-                  <Input className="rounded-none" />
-                </div>
-                <div>
-                  <Label className="text-xs pl-2">dirección</Label>
-                  <Input className="rounded-none" />
-                </div>
-                <div>
-                  <Label className="text-xs pl-2 text-muted-foreground">
-                    referencia de la dirección (opcional)
-                  </Label>
-                  <Input className="rounded-none" />
-                </div>
-                <div className="flex gap-5 ">
-                  <div className="w-full">
-                    <Label className="text-xs pl-2">departamento</Label>
-                    <Select>
-                      <SelectTrigger className="rounded-none">
-                        <SelectValue placeholder="Departamento" />
-                      </SelectTrigger>
 
-                      <SelectContent className="rounded-none">
-                        <SelectItem className="rounded-none" value="light">
-                          Lima Metropolitana
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
+                <div className="flex flex-col gap-3 pt-5">
+                  <span
+                    className={`${raleway.className} text-xl font-semibold text-primary`}
+                  >
+                    Entrega
+                  </span>
+                  <div className="flex gap-5 pt-3">
+                    <div className="w-full">
+                      <Label className="text-xs pl-2 ">nombre</Label>
+                      <Input className="rounded-none" />
+                    </div>
+                    <div className="w-full">
+                      <Label className="text-xs pl-2">apellidos</Label>
+                      <Input className="rounded-none" />
+                    </div>
                   </div>
-                  <div className="w-full">
-                    <Label className="text-xs pl-2">distrito</Label>
-                    <Select>
-                      <SelectTrigger className="rounded-none">
-                        <SelectValue placeholder="Distrito" />
-                      </SelectTrigger>
-
-                      <SelectContent className="rounded-none">
-                        {distritos.map((distrito) => (
-                          <SelectItem
-                            key={distrito}
-                            className="rounded-none"
-                            value={distrito}
-                          >
-                            {distrito}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="w-full">
-                    <Label className="text-xs pl-2 text-muted-foreground">
-                      código postal (opcional)
+                  <div>
+                    <Label className="text-xs pl-2">
+                      dni / carnet de extranjeria
                     </Label>
                     <Input className="rounded-none" />
                   </div>
-                </div>
-                <div>
-                  <Label className="text-xs pl-2">teléfono</Label>
-                  <Input className="rounded-none" />
-                </div>
-              </div>
+                  <div>
+                    <Label className="text-xs pl-2">dirección</Label>
+                    <Input className="rounded-none" />
+                  </div>
+                  <div>
+                    <Label className="text-xs pl-2 text-muted-foreground">
+                      referencia de la dirección (opcional)
+                    </Label>
+                    <Input className="rounded-none" />
+                  </div>
+                  <div className="flex gap-5 ">
+                    <div className="w-full">
+                      <Label className="text-xs pl-2">departamento</Label>
+                      <Select>
+                        <SelectTrigger className="rounded-none">
+                          <SelectValue placeholder="Departamento" />
+                        </SelectTrigger>
 
-              <div className="pt-5">
-                <span
-                  className={`${raleway.className} text-xl font-semibold text-primary`}
-                >
-                  Metodos de Envio
-                </span>
-                <div className="pt-3 w-full">
-                  <Label className="text-xs pl-2">email</Label>
-                  <Input className="rounded-none" />
-                </div>
-              </div>
+                        <SelectContent className="rounded-none">
+                          <SelectItem className="rounded-none" value="light">
+                            Lima Metropolitana
+                          </SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="w-full">
+                      <Label className="text-xs pl-2">distrito</Label>
+                      <Select>
+                        <SelectTrigger className="rounded-none">
+                          <SelectValue placeholder="Distrito" />
+                        </SelectTrigger>
 
-              <div className="pt-5">
-                <span
-                  className={`${raleway.className} text-xl font-semibold text-primary`}
-                >
-                  Pago
-                </span>
-                <div className="pt-3 w-full">
-                  <Label className="text-xs pl-2">email</Label>
-                  <Input className="rounded-none" />
+                        <SelectContent className="rounded-none">
+                          {distritos.map((distrito) => (
+                            <SelectItem
+                              key={distrito}
+                              className="rounded-none"
+                              value={distrito}
+                            >
+                              {distrito}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div className="w-full">
+                      <Label className="text-xs pl-2 text-muted-foreground">
+                        código postal (opcional)
+                      </Label>
+                      <Input className="rounded-none" />
+                    </div>
+                  </div>
+                  <div>
+                    <Label className="text-xs pl-2">teléfono</Label>
+                    <Input className="rounded-none" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="pt-5">
-                <span
-                  className={`${raleway.className} text-xl font-semibold text-primary`}
-                >
-                  Direccion de facturación
-                </span>
-                <div className="pt-3 w-full">
-                  <Label className="text-xs pl-2">email</Label>
-                  <Input className="rounded-none" />
+                <div className="pt-5">
+                  <span
+                    className={`${raleway.className} text-xl font-semibold text-primary`}
+                  >
+                    Metodos de Envio
+                  </span>
+                  <div className="pt-3 w-full">
+                    <Label className="text-xs pl-2">email</Label>
+                    <Input className="rounded-none" />
+                  </div>
                 </div>
-              </div>
-            </form>
+
+                <div className="pt-5">
+                  <span
+                    className={`${raleway.className} text-xl font-semibold text-primary`}
+                  >
+                    Pago
+                  </span>
+                  <div className="pt-3 w-full">
+                    <Label className="text-xs pl-2">email</Label>
+                    <Input className="rounded-none" />
+                  </div>
+                </div>
+
+                <div className="pt-5">
+                  <span
+                    className={`${raleway.className} text-xl font-semibold text-primary`}
+                  >
+                    Direccion de facturación
+                  </span>
+                  <div className="pt-3 w-full pb-20">
+                    <Label className="text-xs pl-2">email</Label>
+                    <Input className="rounded-none" />
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
 
-        <div className="flex w-full h-full bg-primary text-background">
-          <div className="pl-20 pr-36 pt-8 w-full">
+        <div className="w-1/2 min-h-screen bg-primary text-background">
+          <div className="sticky top-0 pl-20 pr-36 py-8">
             <ul className="border-b pb-12">
               {items.map((item) => (
                 <div key={item.id} className="flex gap-4 pt-3">
